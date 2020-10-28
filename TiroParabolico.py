@@ -6,6 +6,7 @@ ball = vector(-200, -200)
 speed = vector(0, 0)
 targets = []
 
+
 def tap(x, y):
     "Respond to screen tap."
     if not inside(ball):
@@ -14,9 +15,11 @@ def tap(x, y):
         speed.x = (x + 200) / 25
         speed.y = (y + 200) / 25
 
+
 def inside(xy):
     "Return True if xy within screen."
     return -200 < xy.x < 200 and -200 < xy.y < 200
+
 
 def draw():
     "Draw ball and targets."
@@ -32,6 +35,7 @@ def draw():
 
     update()
 
+
 def move():
     "Move ball and targets."
     if randrange(40) == 0:
@@ -40,7 +44,7 @@ def move():
         targets.append(target)
 
     for target in targets:
-        target.x -= 0.5
+        target.x -= 2
 
     if inside(ball):
         speed.y -= 0.35
@@ -59,7 +63,8 @@ def move():
         if not inside(target):
             return
 
-    ontimer(move, 50)
+    ontimer(move, 20)
+
 
 setup(420, 420, 370, 0)
 hideturtle()
